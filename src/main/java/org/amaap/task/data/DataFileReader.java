@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class DataFileReader {
 
-    public ElectionResult processFile(String filePath) throws EmptyFilePathException {
+    public ElectionResult processFile(String filePath) throws IOException, EmptyFilePathException {
         if (filePath == null || filePath.trim().isEmpty()) {
             throw new EmptyFilePathException("File path is empty or null.");
         }
@@ -23,7 +23,7 @@ public class DataFileReader {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] tokens = line.split(", ");
-                for (int i = 1; i < tokens.length; i += 2) {
+                for (int i = 1; i < tokens.length; i += 3) {
                     String party = tokens[i];
                     int votes = Integer.parseInt(tokens[i + 1]);
                     partyVotes.put(party, votes);
@@ -31,11 +31,6 @@ public class DataFileReader {
             }
 
             return new ElectionResult(location, partyVotes);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
-
     }
-
-
 }

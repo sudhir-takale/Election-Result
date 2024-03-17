@@ -10,6 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import static org.mockito.Mockito.when;
@@ -26,9 +27,9 @@ public class ElectionManagerTest {
     private DataFileReader dataFileReader;
 
     @Test
-    void shouldBeAbleToReadFromFile() throws EmptyFilePathException {
+    void shouldBeAbleToReadFromFile() throws EmptyFilePathException, IOException {
 
-        when(dataFileReader.processFile("Dummy Path")).thenReturn(new ElectionResult("Pune", new HashMap<>()));
+        when(dataFileReader.processFile("D:\\Election Result\\src\\main\\java\\org\\amaap\\task\\ElectionData.txt")).thenReturn(new ElectionResult("Pune", new HashMap<>()));
 
         ElectionResult electionResult = electionManager.readDataFromFile();
 

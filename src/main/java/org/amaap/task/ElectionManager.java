@@ -4,6 +4,8 @@ import org.amaap.task.data.DataFileReader;
 import org.amaap.task.data.exception.EmptyFilePathException;
 import org.amaap.task.domain.ElectionResult;
 
+import java.io.IOException;
+
 public class ElectionManager {
     private DataFileReader dataFileReader;
 
@@ -12,7 +14,7 @@ public class ElectionManager {
 
     }
 
-    public ElectionResult readDataFromFile() throws EmptyFilePathException {
+    public ElectionResult readDataFromFile() throws EmptyFilePathException, IOException {
 
        return dataFileReader.processFile("Dummy Path");
 

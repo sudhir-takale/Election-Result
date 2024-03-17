@@ -17,16 +17,20 @@ public class DataFileReader {
         }
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String location = br.readLine();
+            String location = null;
             Map<String, Integer> partyVotes = new HashMap<>();
 
             String line;
             while ((line = br.readLine()) != null) {
-                String[] tokens = line.split(", ");
-                for (int i = 1; i < tokens.length; i += 3) {
-                    String party = tokens[i];
-                    int votes = Integer.parseInt(tokens[i + 1]);
+                String[] tokens = line.split(",");
+
+                location = tokens[0].trim();
+
+                for (int i = 1; i < tokens.length; i += 2) {
+                    String party = tokens[i].trim();
+                    int votes = Integer.parseInt(tokens[i + 1].trim());
                     partyVotes.put(party, votes);
+
                 }
             }
 

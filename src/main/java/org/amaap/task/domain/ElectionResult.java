@@ -29,6 +29,11 @@ public class ElectionResult {
         this.partyVotes = partyVotes;
     }
 
+    public static String getFullNameOfParty(String winner) {
+
+        return partyNames.get(winner);
+    }
+
     public String getWinnerOfTheElection() {
 
         String winner = null;
@@ -47,15 +52,13 @@ public class ElectionResult {
         return winner;
     }
 
-
-    public String getFullNameOfParty(String winner) {
-
-        return partyNames.get(winner);
+    public String getLocation() {
+        return location;
     }
 
     public String getConstituencyName() {
 
-        return location;
+        return getLocation();
     }
 }
 

@@ -39,10 +39,16 @@ public class ElectionManagerTest {
 
     @Test
     void shouldBeAbleToShowTheWinnerOfTheElectionFromBangaloreRegion() throws EmptyFilePathException, IOException {
+        Map<String, Integer> votes = new HashMap<>();
+        votes.put("BJP", 1233);
+        votes.put("INC", 34543);
+        votes.put("NCP", 345);
+        votes.put("CPI", 3454);
+        ElectionResult electionResult = new ElectionResult("Bangalore", votes);
+        when(dataFileReader.processFile("D:\\Election Result\\src\\main\\java\\org\\amaap\\task\\ElectionData.txt")).thenReturn(electionResult);
 
         String winner = electionManager.showWinnerOfTheElection();
         Assertions.assertEquals("INC", winner);
-
     }
 
     @Test
@@ -53,10 +59,11 @@ public class ElectionManagerTest {
         votes.put("NCP", 345);
         votes.put("CPI", 3454);
         ElectionResult electionResult = new ElectionResult("Bangalore", votes);
-        ElectionManager electionManager = new ElectionManager(dataFileReader, electionResult);
+        when(dataFileReader.processFile("D:\\Election Result\\src\\main\\java\\org\\amaap\\task\\ElectionData.txt")).thenReturn(electionResult);
+
         String winnerFullName = electionManager.getFullNameOfParty();
         Assertions.assertEquals("Indian National Congress", winnerFullName);
-
     }
+
 
 }

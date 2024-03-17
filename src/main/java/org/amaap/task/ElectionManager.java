@@ -8,27 +8,17 @@ import java.io.IOException;
 
 public class ElectionManager {
     private DataFileReader dataFileReader;
-    private ElectionResult electionResult;
 
-    public ElectionManager(DataFileReader dataFileReader, ElectionResult electionResult) {
+    public ElectionManager(DataFileReader dataFileReader) {
         this.dataFileReader = dataFileReader;
-        this.electionResult = electionResult;
 
     }
-
 
     public ElectionResult readDataFromFile() throws EmptyFilePathException, IOException {
 
-        return dataFileReader.processFile("Dummy Path");
+        return dataFileReader.processFile("D:\\Election Result\\src\\main\\java\\org\\amaap\\task\\ElectionData.txt");
 
     }
-
-
-//    public String getConstituencyName() throws EmptyFilePathException, IOException {
-//
-//        ElectionResult electionResult = readDataFromFile();
-//        return electionResult.getConstituencyName();
-//    }
 
     public String showWinnerOfTheElection() throws EmptyFilePathException, IOException {
 
@@ -39,6 +29,6 @@ public class ElectionManager {
     public String getFullNameOfParty() throws EmptyFilePathException, IOException {
 
         String winner = showWinnerOfTheElection();
-        return electionResult.getFullNameOfParty(winner);
+        return ElectionResult.getFullNameOfParty(winner);
     }
 }

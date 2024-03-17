@@ -6,8 +6,22 @@ import java.util.Map;
 public class ElectionResult {
 
 
+    private static Map<String, String> partyNames = new HashMap<>();
+
+    static {
+        partyNames.put("BJP", "Bhartiya Janta Party");
+        partyNames.put("INC", "Indian National Congress");
+        partyNames.put("BSP", "Bahujan Samaj Party");
+        partyNames.put("NCP", "Nationalist Party Of India");
+        partyNames.put("IND", "Independent");
+        partyNames.put("CPI", "Communist Party Of India");
+
+
+    }
+
     private String location;
     private Map<String, Integer> partyVotes;
+
 
     public ElectionResult(String location, Map<String, Integer> partyVotes) {
 

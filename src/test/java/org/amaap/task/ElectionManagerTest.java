@@ -36,5 +36,14 @@ public class ElectionManagerTest {
         Assertions.assertNotNull(electionResult);
     }
 
+    @Test
+    void shouldBeAbleToShowTheWinnerOfTheElectionFromBangaloreRegion() throws EmptyFilePathException, IOException {
+
+        String winner = electionManager.showWinnerOfTheElection();
+        Assertions.assertEquals("BJP", winner);
+
+
+    }
+
 
 }

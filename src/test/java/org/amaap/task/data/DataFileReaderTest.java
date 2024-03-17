@@ -40,6 +40,7 @@ class DataFileReaderTest {
     void shouldBeAbleToReadDataFromFile() throws EmptyFilePathException, IOException {
 
         ElectionResult data = dataFileReader.processFile("D:\\Election Result\\src\\main\\java\\org\\amaap\\task\\ElectionData.txt");
+        System.out.println(data);
         Assertions.assertNotNull(data);
 
 

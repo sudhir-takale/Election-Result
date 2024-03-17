@@ -40,10 +40,17 @@ public class ElectionManagerTest {
     void shouldBeAbleToShowTheWinnerOfTheElectionFromBangaloreRegion() throws EmptyFilePathException, IOException {
 
         String winner = electionManager.showWinnerOfTheElection();
-        Assertions.assertEquals("BJP", winner);
-
+        Assertions.assertEquals("INC", winner);
 
     }
 
+    @Test
+    void shouldBeAbleToGetFullNameOfPartyWhichHasWinnerOfConstituency() throws EmptyFilePathException, IOException {
+
+        String winner = electionManager.showWinnerOfTheElection();
+        String winnerFullName = electionManager.getFullNameOfParty(winner);
+        Assertions.assertEquals("Indian National Congress", winnerFullName);
+
+    }
 
 }

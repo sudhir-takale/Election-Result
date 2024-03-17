@@ -10,6 +10,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.HashMap;
+
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -26,7 +28,7 @@ public class ElectionManagerTest {
     @Test
     void shouldBeAbleToReadFromFile() throws EmptyFilePathException {
 
-        when(dataFileReader.processFile("Dummy Path")).thenReturn(new ElectionResult());
+        when(dataFileReader.processFile("Dummy Path")).thenReturn(new ElectionResult("Pune", new HashMap<>()));
 
         ElectionResult electionResult = electionManager.readDataFromFile();
 

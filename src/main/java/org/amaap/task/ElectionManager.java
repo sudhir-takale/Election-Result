@@ -8,11 +8,14 @@ import java.io.IOException;
 
 public class ElectionManager {
     private DataFileReader dataFileReader;
+    private ElectionResult electionResult;
 
-    public ElectionManager(DataFileReader dataFileReader) {
+    public ElectionManager(DataFileReader dataFileReader, ElectionResult electionResult) {
         this.dataFileReader = dataFileReader;
+        this.electionResult = electionResult;
 
     }
+
 
     public ElectionResult readDataFromFile() throws EmptyFilePathException, IOException {
 
@@ -31,5 +34,11 @@ public class ElectionManager {
 
         ElectionResult electionResult = readDataFromFile();
         return electionResult.getWinnerOfTheElection();
+    }
+
+    public String getFullNameOfParty() throws EmptyFilePathException, IOException {
+
+        String winner = showWinnerOfTheElection();
+        return electionResult.getFullNameOfParty(winner);
     }
 }

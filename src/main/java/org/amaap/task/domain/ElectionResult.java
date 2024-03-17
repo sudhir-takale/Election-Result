@@ -48,5 +48,9 @@ public class ElectionResult {
     }
 
 
+    public String getFullNameOfParty(String winner) {
+
+        return partyNames.get(winner);
+    }
 }
 

@@ -12,6 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 import static org.mockito.Mockito.when;
 
@@ -46,9 +47,14 @@ public class ElectionManagerTest {
 
     @Test
     void shouldBeAbleToGetFullNameOfPartyWhichHasWinnerOfConstituency() throws EmptyFilePathException, IOException {
-
-        String winner = electionManager.showWinnerOfTheElection();
-        String winnerFullName = electionManager.getFullNameOfParty(winner);
+        Map<String, Integer> votes = new HashMap<>();
+        votes.put("BJP", 1233);
+        votes.put("INC", 34543);
+        votes.put("NCP", 345);
+        votes.put("CPI", 3454);
+        ElectionResult electionResult = new ElectionResult("Bangalore", votes);
+        ElectionManager electionManager = new ElectionManager(dataFileReader, electionResult);
+        String winnerFullName = electionManager.getFullNameOfParty();
         Assertions.assertEquals("Indian National Congress", winnerFullName);
 
     }

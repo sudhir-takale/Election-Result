@@ -15,25 +15,22 @@ import static org.mockito.Mockito.when;
 public class ElectionManagerTest {
 
 
-    @Mock
-
-   private DataFileReader dataFileReader;
-
     @InjectMocks
 
     ElectionManager electionManager;
+    @Mock
 
+    private DataFileReader dataFileReader;
 
     @Test
     void shouldBeAbleToReadFromFile() {
 
-        when(dataFileReader.readFromFile()).thenReturn(new ElectionResult());
+        when(dataFileReader.processFile("Dummy Path")).thenReturn(new ElectionResult());
 
         ElectionResult electionResult = electionManager.readDataFromFile();
 
         Assertions.assertNotNull(electionResult);
     }
-
 
 
 }

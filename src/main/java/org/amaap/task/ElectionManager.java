@@ -13,7 +13,7 @@ public class ElectionManager {
 
     public ElectionResult readDataFromFile() {
 
-       return dataFileReader.readFromFile();
+       return dataFileReader.processFile("Dummy Path");
 
     }
 

@@ -52,5 +52,10 @@ public class ElectionResult {
 
         return partyNames.get(winner);
     }
+
+    public String getConstituencyName() {
+
+        return location;
+    }
 }
 

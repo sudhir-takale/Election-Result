@@ -1,5 +1,6 @@
 package org.amaap.task.domain;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class ElectionResult {
@@ -14,11 +15,24 @@ public class ElectionResult {
         this.partyVotes = partyVotes;
     }
 
-    public String getLocation() {
-        return location;
+    public String getWinnerOfTheElection() {
+
+        String winner = null;
+        int maxVotes = Integer.MIN_VALUE;
+
+        for (Map.Entry<String, Integer> entry : partyVotes.entrySet()) {
+            String party = entry.getKey();
+            int votes = entry.getValue();
+
+            if (votes > maxVotes) {
+                maxVotes = votes;
+                winner = party;
+            }
+        }
+
+        return winner;
     }
 
-    public Map<String, Integer> getPartyVotes() {
-        return partyVotes;
-    }
+
 }
+

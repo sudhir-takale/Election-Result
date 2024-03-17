@@ -16,9 +16,20 @@ public class ElectionManager {
 
     public ElectionResult readDataFromFile() throws EmptyFilePathException, IOException {
 
-       return dataFileReader.processFile("Dummy Path");
+        return dataFileReader.processFile("Dummy Path");
 
     }
 
 
+//    public String getConstituencyName() throws EmptyFilePathException, IOException {
+//
+//        ElectionResult electionResult = readDataFromFile();
+//        return electionResult.getConstituencyName();
+//    }
+
+    public String showWinnerOfTheElection() throws EmptyFilePathException, IOException {
+
+        ElectionResult electionResult = readDataFromFile();
+        return electionResult.getWinnerOfTheElection();
+    }
 }

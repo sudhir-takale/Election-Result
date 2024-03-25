@@ -1,7 +1,7 @@
-package org.amaap.task.data;
+package org.amaap.electionresult.data;
 
-import org.amaap.task.data.exception.EmptyFilePathException;
-import org.amaap.task.domain.ElectionResult;
+import org.amaap.electionresult.data.exception.EmptyFilePathException;
+import org.amaap.electionresult.domain.ElectionResult;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

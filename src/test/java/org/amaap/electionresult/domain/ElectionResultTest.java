@@ -1,4 +1,4 @@
-package org.amaap.task.domain;
+package org.amaap.electionresult.domain;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

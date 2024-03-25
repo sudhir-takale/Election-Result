@@ -1,4 +1,4 @@
-package org.amaap.task.data.exception;
+package org.amaap.electionresult.data.exception;
 
 public class EmptyFilePathException extends Throwable {
     public EmptyFilePathException(String message) {

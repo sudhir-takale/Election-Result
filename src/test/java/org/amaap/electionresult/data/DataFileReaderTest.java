@@ -1,7 +1,7 @@
-package org.amaap.task.data;
+package org.amaap.electionresult.data;
 
-import org.amaap.task.data.exception.EmptyFilePathException;
-import org.amaap.task.domain.ElectionResult;
+import org.amaap.electionresult.data.exception.EmptyFilePathException;
+import org.amaap.electionresult.domain.ElectionResult;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

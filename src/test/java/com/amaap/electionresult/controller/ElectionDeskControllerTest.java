@@ -1,18 +1,23 @@
 package com.amaap.electionresult.controller;
 
-import com.amaap.electionresult.ElectionModule;
+import com.amaap.electionresult.TestBase;
 import com.amaap.electionresult.controller.dto.HttpStatus;
 import com.amaap.electionresult.controller.dto.Response;
-import com.amaap.electionresult.service.io.FileReaderService;
+import com.google.inject.Inject;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-//@GuiceModule(ElectionModule.class)
-public class ElectionDeskControllerTest {
+public class ElectionDeskControllerTest extends TestBase {
 
-    ElectionDeskController electionDeskController = new ElectionDeskController(new FileReaderService());
+    @Inject
+    ElectionDeskController electionDeskController;
+
+    @Test
+    public void testMyServiceInjected() {
+        assertNotNull(electionDeskController, "MyService should be injected by Guice");
+    }
 
     @Test
     void shouldBeAbleToProcessInputFile() {
@@ -26,7 +31,8 @@ public class ElectionDeskControllerTest {
         // assert
         assertEquals(expected, actual);
     }
-      @Test
+
+    @Test
     void shouldReturnBadResponseIfFilePathIsEmpty() {
         // arrange
         String filePath = "";

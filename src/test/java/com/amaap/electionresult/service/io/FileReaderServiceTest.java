@@ -1,6 +1,8 @@
 package com.amaap.electionresult.service.io;
 
+import com.amaap.electionresult.TestBase;
 import com.amaap.electionresult.service.io.exception.EmptyFilePathException;
+import com.google.inject.Inject;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -8,9 +10,10 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class FileReaderServiceTest {
+class FileReaderServiceTest extends TestBase {
 
-    FileReaderService fileReaderService = new FileReaderService();
+    @Inject
+    FileReaderService fileReaderService;
 
     @Test
     void shouldReturnTrueIfFileProcessedSuccessfully() throws EmptyFilePathException, IOException {

@@ -1,8 +1,7 @@
-package com.amaap.electionresult.controller;
+package com.amaap.electionresult.service;
 
 import com.amaap.electionresult.ElectionResultModule;
-import com.amaap.electionresult.controller.dto.HttpStatus;
-import com.amaap.electionresult.controller.dto.Response;
+import com.amaap.electionresult.domain.entity.Party;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -11,32 +10,30 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PartyControllerTest {
+class PartyServiceTest {
 
     @Inject
-    PartyController partyController;
+    PartyService partyService;
 
     @BeforeEach
     public void setUp() {
         Injector injector = Guice.createInjector(new ElectionResultModule());
-        partyController = injector.getInstance(PartyController.class);
-
+        partyService = injector.getInstance(PartyService.class);
     }
 
     @Test
-    void shouldBeAbleToCreateNewParty() {
+    void shouldBeAbleToCreateParty() {
         // arrange
         String partyCode = "INC";
-        Response expected = new Response(HttpStatus.OK, "success");
+        Party expected = new Party("INC", "Indian National Congress");
 
         // act
-        Response actual = partyController.create(partyCode);
+        Party actual = partyService.create(partyCode);
 
         // assert
         assertEquals(expected, actual);
 
     }
-
 
 
 }

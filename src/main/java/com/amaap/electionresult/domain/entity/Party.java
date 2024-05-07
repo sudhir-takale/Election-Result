@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Party {
 
-    private int id;
     private final String code;
     private final String name;
+    private int id;
 
     public Party(String code, String name) {
         this.code = code;
@@ -24,5 +24,9 @@ public class Party {
     @Override
     public int hashCode() {
         return Objects.hash(code, name);
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

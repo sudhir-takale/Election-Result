@@ -1,5 +1,6 @@
 package com.amaap.electionresult.service.io;
 
+import com.amaap.electionresult.repository.db.impl.FakeInMemoryDatabase;
 import com.amaap.electionresult.repository.impl.InMemoryPartyRepository;
 import com.amaap.electionresult.service.ConstituencyService;
 import com.amaap.electionresult.service.ElectionResultService;
@@ -16,7 +17,9 @@ public class FileReaderService {
 
         if (filePath.trim().isEmpty()) throw new EmptyFilePathException("File path is empty" + filePath);
 
-        FileParserService fileParserService = new FileParserService(new PartyService(new InMemoryPartyRepository()), new ConstituencyService(), new ElectionResultService());
+        FileParserService fileParserService =
+                new FileParserService(new PartyService(new InMemoryPartyRepository(new FakeInMemoryDatabase())),
+                        new ConstituencyService(), new ElectionResultService());
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
         String line;

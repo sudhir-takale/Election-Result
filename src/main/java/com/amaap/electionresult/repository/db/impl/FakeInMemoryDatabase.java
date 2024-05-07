@@ -17,4 +17,12 @@ public class FakeInMemoryDatabase implements InMemoryDatabase {
         parties.add(party);
         return party;
     }
+
+    @Override
+    public Party getBy(String partyCode) {
+        for (Party party : parties) {
+            if (party.getPartyCode().equals(partyCode)) return party;
+        }
+        return null;
+    }
 }

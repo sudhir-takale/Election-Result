@@ -38,4 +38,21 @@ class PartyRepositoryTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void shouldBeAbleToGetPartyByCode() {
+        // arrange
+        String partyCode = "INC";
+        String partyName = "Indian National Congress";
+        Party actual = partyRepository.save(new Party(partyCode, partyName));
+
+        // act
+        Party party = partyRepository.getBy("INC");
+
+        // assert
+        assertEquals("INC", party.getPartyCode());
+
+
+    }
+
+
 }

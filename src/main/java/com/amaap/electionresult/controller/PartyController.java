@@ -24,4 +24,9 @@ public class PartyController {
         }
 
     }
+
+    public Response getPartyBy(String partyCode) {
+        if (partyService.getPartyBy(partyCode) != null) return new Response(HttpStatus.OK, "success");
+        else return new Response(HttpStatus.NOT_FOUND, "success");
+    }
 }

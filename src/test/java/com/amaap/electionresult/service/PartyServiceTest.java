@@ -1,6 +1,8 @@
 package com.amaap.electionresult.service;
 
 import com.amaap.electionresult.ElectionResultModule;
+import com.amaap.electionresult.controller.dto.HttpStatus;
+import com.amaap.electionresult.controller.dto.Response;
 import com.amaap.electionresult.domain.entity.Party;
 import com.amaap.electionresult.service.io.exception.InvalidPartyCodeException;
 import com.google.inject.Guice;
@@ -60,6 +62,19 @@ class PartyServiceTest {
         assertEquals(expected, actual);
 
     }
+    @Test
+    void shouldBeAbleToGetPartyByCode() throws InvalidPartyCodeException {
+        // arrange
+        String partyCode = "INC";
+        partyService.create(partyCode);
+
+        // act
+        Party actual = partyService.getPartyBy("BJP");
+
+        // assert
+        assertEquals("INC", actual.getPartyCode());
+    }
+
 
 
 }

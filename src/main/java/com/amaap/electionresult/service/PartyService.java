@@ -1,5 +1,6 @@
 package com.amaap.electionresult.service;
 
+import com.amaap.electionresult.controller.dto.Response;
 import com.amaap.electionresult.domain.entity.Party;
 import com.amaap.electionresult.domain.valueobject.PartyName;
 import com.amaap.electionresult.repository.PartyRepository;
@@ -21,5 +22,9 @@ public class PartyService {
 
         Party party = new Party(partyCode, partyFullName);
         return partyRepository.save(party);
+    }
+
+    public Party getPartyBy(String partyCode) {
+        return partyRepository.getBy(partyCode);
     }
 }

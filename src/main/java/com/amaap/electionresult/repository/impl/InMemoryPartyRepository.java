@@ -17,4 +17,9 @@ public class InMemoryPartyRepository implements PartyRepository {
     public Party save(Party party) {
         return inMemoryDatabase.save(party);
     }
+
+    @Override
+    public Party getBy(String partyCode) {
+        return inMemoryDatabase.getBy(partyCode);
+    }
 }

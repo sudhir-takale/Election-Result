@@ -56,5 +56,20 @@ public class PartyControllerTest {
 
     }
 
+    @Test
+    void shouldReturnNotFoundResponseIfPartyNoFound() {
+        // arrange
+        String partyCode = "INC";
+        partyController.create(partyCode);
+        Response expected = new Response(HttpStatus.NOT_FOUND, "success");
+
+        // act
+        Response actual = partyController.getPartyBy("BJP");
+
+        // assert
+        assertEquals(expected, actual);
+
+    }
+
 
 }

@@ -6,4 +6,5 @@ public interface PartyRepository {
 
     Party save(Party party);
 
+    Party getBy(String partyCode);
 }

@@ -10,7 +10,7 @@ import java.util.Map;
 public class PartyCodeValidator {
     private static List<String> validPartyCodes;
 
-    public PartyCodeValidator() throws FileNotFoundException, FileNotFoundException {
+    public PartyCodeValidator() throws FileNotFoundException {
         Yaml yaml = new Yaml();
         FileInputStream inputStream = new FileInputStream("D:\\Tasks\\Election-Result\\src\\main\\java\\com\\amaap\\electionresult\\config\\PartyCode.yml");
         Map<String, List<String>> config = yaml.load(inputStream);

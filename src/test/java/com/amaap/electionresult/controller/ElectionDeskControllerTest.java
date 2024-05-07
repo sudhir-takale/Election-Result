@@ -3,6 +3,7 @@ package com.amaap.electionresult.controller;
 import com.amaap.electionresult.TestBase;
 import com.amaap.electionresult.controller.dto.HttpStatus;
 import com.amaap.electionresult.controller.dto.Response;
+import com.amaap.electionresult.service.io.exception.InvalidPartyCodeException;
 import com.google.inject.Inject;
 import org.junit.jupiter.api.Test;
 
@@ -20,20 +21,20 @@ public class ElectionDeskControllerTest extends TestBase {
     }
 
     @Test
-    void shouldBeAbleToProcessInputFile() {
+    void shouldBeAbleToProcessInputFile() throws InvalidPartyCodeException {
         // arrange
         String filePath = "D:\\Tasks\\Election-Result\\src\\main\\java\\Resource\\ElectionData.txt";
         Response expected = new Response(HttpStatus.OK, "File processed successfully");
 
         // act
-        Response actual = electionDeskController.processFile(filePath);
+        Response actual = electionDeskController.processFile (filePath);
 
         // assert
         assertEquals(expected, actual);
     }
 
     @Test
-    void shouldReturnBadResponseIfFilePathIsEmpty() {
+    void shouldReturnBadResponseIfFilePathIsEmpty() throws InvalidPartyCodeException {
         // arrange
         String filePath = "";
         Response expected = new Response(HttpStatus.BAD_REQUEST, "Error in file processing");

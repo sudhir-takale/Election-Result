@@ -3,6 +3,7 @@ package com.amaap.electionresult.controller;
 import com.amaap.electionresult.controller.dto.HttpStatus;
 import com.amaap.electionresult.controller.dto.Response;
 import com.amaap.electionresult.service.io.FileReaderService;
+import com.amaap.electionresult.service.io.exception.InvalidPartyCodeException;
 import com.google.inject.Inject;
 
 public class ElectionDeskController {
@@ -14,7 +15,7 @@ public class ElectionDeskController {
         this.fileReaderService = fileReaderService;
     }
 
-    public Response processFile(String filePath) {
+    public Response processFile(String filePath) throws InvalidPartyCodeException {
         try {
             boolean result = fileReaderService.readFile(filePath);
             return new Response(HttpStatus.OK, "File processed successfully");

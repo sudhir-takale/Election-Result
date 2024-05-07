@@ -1,5 +1,8 @@
 package com.amaap.electionresult.service.io;
 
+import com.amaap.electionresult.service.ConstituencyService;
+import com.amaap.electionresult.service.ElectionResultService;
+import com.amaap.electionresult.service.PartyService;
 import com.amaap.electionresult.service.io.exception.EmptyFilePathException;
 
 import java.io.BufferedReader;
@@ -7,11 +10,11 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class FileReaderService {
-    public boolean readFile(String filePath) throws IOException, IOException, EmptyFilePathException {
+    public boolean readFile(String filePath) throws IOException, EmptyFilePathException {
 
         if (filePath.trim().isEmpty()) throw new EmptyFilePathException("File path is empty" + filePath);
 
-        FileParserService fileParserService = new FileParserService();
+        FileParserService fileParserService = new FileParserService(new PartyService(), new ConstituencyService(), new ElectionResultService());
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
         String line;

@@ -10,7 +10,7 @@ A result will consist of:
 
 So for example:
 
-Banglore, 11014, BJP, 17803, INC, 4923, CPI, 2069, NCP  <br>
+Bangalore, 11014, BJP, 17803, INC, 4923, CPI, 2069, NCP  <br>
 Pune, INC, 9389, CPI, 4829, BJP, 3375, NCP, 3371, BSP, 309, IND
 
 Party Codes -
@@ -31,5 +31,21 @@ We want to transform this into a standard result that shows:
 
 
 ### Analysis
+
+#### Controller
+- ElectionDeskController  - it will call to fileProcessor to process and extract file content
+  - processInputFile  - method which will call to the service to fileprocessor  
+
+
+
+#### Service
+- FileReaderService - it will read the content of the file line by line and
+- FileParserService  - it will parse the file and validate the data and creates objects
+  - parseInputLine - it will parse file line by line and creates object
+
+
+
+
+
 
 

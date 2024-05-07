@@ -47,5 +47,19 @@ class PartyServiceTest {
 
     }
 
+    @Test
+    void shouldBeAbleToSavePartyIntoRepository() throws InvalidPartyCodeException {
+        // arrange
+        String partyCode = "INC";
+        Party expected = new Party("INC", "Indian National Congress");
+
+        // act
+        Party actual = partyService.create(partyCode);
+
+        // assert
+        assertEquals(expected, actual);
+
+    }
+
 
 }

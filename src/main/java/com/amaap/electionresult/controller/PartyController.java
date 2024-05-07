@@ -4,11 +4,13 @@ import com.amaap.electionresult.controller.dto.HttpStatus;
 import com.amaap.electionresult.controller.dto.Response;
 import com.amaap.electionresult.service.PartyService;
 import com.amaap.electionresult.service.io.exception.InvalidPartyCodeException;
+import com.google.inject.Inject;
 
 public class PartyController {
 
     private final PartyService partyService;
 
+    @Inject
     public PartyController(PartyService partyService) {
         this.partyService = partyService;
     }

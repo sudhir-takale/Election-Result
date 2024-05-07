@@ -3,6 +3,7 @@ package com.amaap.electionresult.domain.entity;
 import java.util.Objects;
 
 public class Party {
+
     private int id;
     private final String code;
     private final String name;

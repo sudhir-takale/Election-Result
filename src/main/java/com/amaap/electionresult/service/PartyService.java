@@ -5,6 +5,7 @@ import com.amaap.electionresult.domain.valueobject.PartyName;
 import com.amaap.electionresult.service.io.exception.InvalidPartyCodeException;
 
 public class PartyService {
+
     public Party create(String partyCode) throws InvalidPartyCodeException {
 
         if (partyCode.isEmpty()) throw new InvalidPartyCodeException("invalid party code " + partyCode);

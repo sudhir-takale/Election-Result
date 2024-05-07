@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class PartyServiceTest {
 
@@ -33,6 +34,16 @@ class PartyServiceTest {
 
         // assert
         assertEquals(expected, actual);
+
+    }
+
+    @Test
+    void shouldThrowExceptionIfPartyCodeIsEmpty() {
+        // arrange
+        String partyCode = "";
+
+        // assert
+        assertThrows(InvalidPartyCodeException.class, () -> partyService.create(partyCode));
 
     }
 

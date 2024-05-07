@@ -2,6 +2,7 @@ package com.amaap.electionresult.service;
 
 import com.amaap.electionresult.ElectionResultModule;
 import com.amaap.electionresult.domain.entity.Party;
+import com.amaap.electionresult.service.io.exception.InvalidPartyCodeException;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -22,7 +23,7 @@ class PartyServiceTest {
     }
 
     @Test
-    void shouldBeAbleToCreateParty() {
+    void shouldBeAbleToCreateParty() throws InvalidPartyCodeException {
         // arrange
         String partyCode = "INC";
         Party expected = new Party("INC", "Indian National Congress");

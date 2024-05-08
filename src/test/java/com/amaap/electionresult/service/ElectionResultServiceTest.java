@@ -3,6 +3,7 @@ package com.amaap.electionresult.service;
 import com.amaap.electionresult.ElectionResultModule;
 import com.amaap.electionresult.domain.model.entity.ElectionResult;
 import com.amaap.electionresult.domain.model.entity.Party;
+import com.amaap.electionresult.domain.service.dto.ElectionResultDto;
 import com.amaap.electionresult.service.io.exception.InvalidPartyCodeException;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
@@ -13,6 +14,7 @@ import org.junit.jupiter.api.Test;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -54,10 +56,8 @@ class ElectionResultServiceTest {
         int voteCount = 345;
         int voteCount1 = 3445;
         Map<Party, Integer> party = new HashMap<>();
-        Party p = new Party("INC", "Indian National Congress");
-        Party p1 = new Party("AAP", "Aam Adami Party");
-        party.put(p, voteCount);
-        party.put(p1, voteCount1);
+        party.put(new Party("INC", "Indian National Congress"), voteCount);
+        party.put(new Party("AAP", "Aam Adami Party"), voteCount1);
         partyService.create("INC");
         partyService.create("AAP");
         electionResultService.create(constituencyName, "INC", voteCount);
@@ -70,5 +70,30 @@ class ElectionResultServiceTest {
         assertEquals(2, electionResults.size());
 
     }
+
+    @Test
+    void shouldBeAbleToGetWinnerOfTheConstituency() throws InvalidPartyCodeException, IllegalAccessException {
+        // arrange
+        String constituencyName = "pune";
+        int voteCount = 345;
+        Map<Party, Integer> party = new HashMap<>();
+        Party p = new Party("INC", "Indian National Congress");
+        party.put(p, voteCount);
+        party.put(new Party("AAP", "Aam Adami Party"), voteCount);
+        ElectionResult expected = new ElectionResult(constituencyName, party);
+        partyService.create("INC");
+        partyService.create("AAP");
+        electionResultService.create(constituencyName, "INC", voteCount);
+        electionResultService.create(constituencyName, "AAP", 66);
+
+        // act
+        Optional<ElectionResultDto> winner = electionResultService.getWinnerOfConstituency();
+        ElectionResultDto electionResultDto = winner.get();
+        // assert
+        assertEquals("INC", electionResultDto.partyCode);
+        assertEquals("Indian National Congress", electionResultDto.partyName);
+        assertEquals(345, electionResultDto.winnerVotes);
+    }
+
 
 }

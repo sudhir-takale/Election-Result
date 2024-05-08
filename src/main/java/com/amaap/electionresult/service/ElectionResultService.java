@@ -2,12 +2,15 @@ package com.amaap.electionresult.service;
 
 import com.amaap.electionresult.domain.model.entity.ElectionResult;
 import com.amaap.electionresult.domain.model.entity.Party;
+import com.amaap.electionresult.domain.service.ElectionResultEvaluator;
+import com.amaap.electionresult.domain.service.dto.ElectionResultDto;
 import com.amaap.electionresult.repository.ElectionResultRepository;
 import com.google.inject.Inject;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class ElectionResultService {
 
@@ -33,6 +36,12 @@ public class ElectionResultService {
 
     public List<ElectionResult> getElectionResults() {
         return electionResultRepository.getElectionResults();
+    }
+
+    public Optional<ElectionResultDto> getWinnerOfConstituency() {
+
+        List<ElectionResult> constituencies = getElectionResults();
+        return ElectionResultEvaluator.getWinnerOfConstituency(constituencies);
     }
 }
 

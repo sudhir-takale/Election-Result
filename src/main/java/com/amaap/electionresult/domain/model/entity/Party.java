@@ -34,6 +34,14 @@ public class Party {
         return this.code;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
     @Override
     public String toString() {
         return "Party{" +

@@ -1,6 +1,7 @@
 package com.amaap.electionresult.repository.db;
 
 import com.amaap.electionresult.domain.model.entity.Constituency;
+import com.amaap.electionresult.domain.model.entity.ElectionResult;
 import com.amaap.electionresult.domain.model.entity.Party;
 
 public interface InMemoryDatabase {
@@ -11,4 +12,6 @@ public interface InMemoryDatabase {
     Constituency insert(Constituency constituency);
 
     boolean check(String name);
+
+    ElectionResult saveResult(ElectionResult electionResult);
 }

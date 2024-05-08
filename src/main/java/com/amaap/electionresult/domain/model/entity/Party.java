@@ -33,4 +33,13 @@ public class Party {
     public String getPartyCode() {
         return this.code;
     }
+
+    @Override
+    public String toString() {
+        return "Party{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }

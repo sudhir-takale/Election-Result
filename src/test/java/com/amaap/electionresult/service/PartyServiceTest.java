@@ -67,7 +67,7 @@ class PartyServiceTest {
         partyService.create(partyCode);
 
         // act
-        Party actual = partyService.getPartyBy("BJP");
+        Party actual = partyService.getPartyBy("INC");
 
         // assert
         assertEquals("INC", actual.getPartyCode());

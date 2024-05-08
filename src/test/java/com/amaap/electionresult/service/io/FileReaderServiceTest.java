@@ -18,7 +18,7 @@ class FileReaderServiceTest extends TestBase {
     FileReaderService fileReaderService;
 
     @Test
-    void shouldReturnTrueIfFileProcessedSuccessfully() throws EmptyFilePathException, IOException, InvalidPartyCodeException, InvalidConstituencyFoundException {
+    void shouldReturnTrueIfFileProcessedSuccessfully() throws EmptyFilePathException, IOException, InvalidPartyCodeException, InvalidConstituencyFoundException, IllegalAccessException {
         // arrange
         String filePath = "D:\\Tasks\\Election-Result\\src\\main\\java\\Resource\\ElectionData.txt";
 

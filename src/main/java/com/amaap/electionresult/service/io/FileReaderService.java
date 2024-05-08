@@ -2,6 +2,7 @@ package com.amaap.electionresult.service.io;
 
 import com.amaap.electionresult.repository.db.impl.FakeInMemoryDatabase;
 import com.amaap.electionresult.repository.impl.InMemoryConstituencyRepository;
+import com.amaap.electionresult.repository.impl.InMemoryElectionResultRepository;
 import com.amaap.electionresult.repository.impl.InMemoryPartyRepository;
 import com.amaap.electionresult.service.ConstituencyService;
 import com.amaap.electionresult.service.ElectionResultService;
@@ -15,14 +16,13 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class FileReaderService {
-    public boolean readFile(String filePath) throws IOException, EmptyFilePathException, InvalidPartyCodeException, InvalidConstituencyFoundException {
+    public boolean readFile(String filePath) throws IOException, EmptyFilePathException, InvalidPartyCodeException, InvalidConstituencyFoundException, IllegalAccessException {
 
         if (filePath.trim().isEmpty()) throw new EmptyFilePathException("File path is empty" + filePath);
 
-        FileParserService fileParserService =
-                new FileParserService(new PartyService(new InMemoryPartyRepository(new FakeInMemoryDatabase())),
-                        new ConstituencyService(new InMemoryConstituencyRepository(new FakeInMemoryDatabase())),
-                        new ElectionResultService());
+        PartyService partyService = new PartyService(new InMemoryPartyRepository(new FakeInMemoryDatabase()));
+
+        FileParserService fileParserService = new FileParserService(partyService, new ConstituencyService(new InMemoryConstituencyRepository(new FakeInMemoryDatabase())), new ElectionResultService(new InMemoryElectionResultRepository(new FakeInMemoryDatabase()), partyService));
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
         String line;

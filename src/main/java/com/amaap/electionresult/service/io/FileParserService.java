@@ -22,7 +22,7 @@ public class FileParserService {
         this.electionResultService = electionResultService;
     }
 
-    public boolean parseInputLine(String line) throws FileNotFoundException, InvalidPartyCodeException, InvalidConstituencyFoundException {
+    public boolean parseInputLine(String line) throws FileNotFoundException, InvalidPartyCodeException, InvalidConstituencyFoundException, IllegalAccessException {
         PartyCodeValidator partyCodeValidator = new PartyCodeValidator();
 
         String[] parts = line.split(",");

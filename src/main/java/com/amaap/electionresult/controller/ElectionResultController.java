@@ -14,7 +14,7 @@ public class ElectionResultController {
         this.electionResultService = electionResultService;
     }
 
-    public Response create(String constituencyName, String partyCode, int voteCount) {
+    public Response create(String constituencyName, String partyCode, int voteCount) throws IllegalAccessException {
         try {
             electionResultService.create(constituencyName, partyCode, voteCount);
             return new Response(HttpStatus.OK, "success");

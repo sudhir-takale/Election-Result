@@ -27,6 +27,7 @@ public class ElectionResultService {
         partyMap.put(party, voteCount);
 
         ElectionResult electionResult = new ElectionResult(constituencyName, partyMap);
-        electionResultRepository.save(electionResult);
+        return electionResultRepository.save(electionResult);
     }
 }
+

@@ -20,17 +20,14 @@ public class ElectionResult {
 
     }
 
+    public String getConstituencyName() {
+        return constituencyName;
+    }
+
     public Map<Party, Integer> getParty() {
         return party;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getConstituencyName() {
-        return constituencyName;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -43,5 +40,14 @@ public class ElectionResult {
     @Override
     public int hashCode() {
         return Objects.hash(constituencyName, party);
+    }
+
+    @Override
+    public String toString() {
+        return "ElectionResult{" +
+                "constituencyName='" + constituencyName + '\'' +
+                ", id=" + id +
+                ", party=" + party +
+                '}';
     }
 }

@@ -1,6 +1,7 @@
 package com.amaap.electionresult.service.io;
 
 import com.amaap.electionresult.TestBase;
+import com.amaap.electionresult.service.exception.InvalidConstituencyFoundException;
 import com.amaap.electionresult.service.io.exception.EmptyFilePathException;
 import com.amaap.electionresult.service.io.exception.InvalidPartyCodeException;
 import com.google.inject.Inject;
@@ -17,7 +18,7 @@ class FileReaderServiceTest extends TestBase {
     FileReaderService fileReaderService;
 
     @Test
-    void shouldReturnTrueIfFileProcessedSuccessfully() throws EmptyFilePathException, IOException, InvalidPartyCodeException {
+    void shouldReturnTrueIfFileProcessedSuccessfully() throws EmptyFilePathException, IOException, InvalidPartyCodeException, InvalidConstituencyFoundException {
         // arrange
         String filePath = "D:\\Tasks\\Election-Result\\src\\main\\java\\Resource\\ElectionData.txt";
 

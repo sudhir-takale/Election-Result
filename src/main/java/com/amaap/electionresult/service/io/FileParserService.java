@@ -3,6 +3,7 @@ package com.amaap.electionresult.service.io;
 import com.amaap.electionresult.service.ConstituencyService;
 import com.amaap.electionresult.service.ElectionResultService;
 import com.amaap.electionresult.service.PartyService;
+import com.amaap.electionresult.service.exception.InvalidConstituencyFoundException;
 import com.amaap.electionresult.service.io.exception.InvalidPartyCodeException;
 import com.amaap.electionresult.service.io.validator.PartyCodeValidator;
 import com.google.inject.Inject;
@@ -21,7 +22,7 @@ public class FileParserService {
         this.electionResultService = electionResultService;
     }
 
-    public boolean parseInputLine(String line) throws FileNotFoundException, InvalidPartyCodeException {
+    public boolean parseInputLine(String line) throws FileNotFoundException, InvalidPartyCodeException, InvalidConstituencyFoundException {
         PartyCodeValidator partyCodeValidator = new PartyCodeValidator();
 
         String[] parts = line.split(",");

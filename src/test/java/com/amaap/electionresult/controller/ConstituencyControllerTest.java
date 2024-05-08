@@ -38,7 +38,18 @@ public class ConstituencyControllerTest {
 
     }
 
+    @Test
+    void shouldReturnBadRequestAsAResponseIfEmptyConstituencyHasPassed() {
+        // arrange
+        String name = "";
+        Response expected = new Response(HttpStatus.BAD_REQUEST, "failed");
 
+        // act
+        Response actual = constituencyController.create(name);
+
+        // assert
+        assertEquals(expected, actual);
+    }
 
 
 }

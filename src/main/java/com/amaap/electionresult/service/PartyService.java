@@ -1,8 +1,7 @@
 package com.amaap.electionresult.service;
 
-import com.amaap.electionresult.controller.dto.Response;
-import com.amaap.electionresult.domain.entity.Party;
-import com.amaap.electionresult.domain.valueobject.PartyName;
+import com.amaap.electionresult.domain.model.entity.Party;
+import com.amaap.electionresult.domain.model.valueobject.PartyName;
 import com.amaap.electionresult.repository.PartyRepository;
 import com.amaap.electionresult.service.io.exception.InvalidPartyCodeException;
 import com.google.inject.Inject;

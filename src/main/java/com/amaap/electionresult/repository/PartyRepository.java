@@ -1,6 +1,6 @@
 package com.amaap.electionresult.repository;
 
-import com.amaap.electionresult.domain.entity.Party;
+import com.amaap.electionresult.domain.model.entity.Party;
 
 public interface PartyRepository {
 

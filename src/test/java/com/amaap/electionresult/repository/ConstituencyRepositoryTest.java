@@ -1,7 +1,7 @@
 package com.amaap.electionresult.repository;
 
 import com.amaap.electionresult.ElectionResultModule;
-import com.amaap.electionresult.domain.entity.Constituency;
+import com.amaap.electionresult.domain.model.entity.Constituency;
 import com.google.inject.Guice;
 import com.google.inject.Inject;
 import com.google.inject.Injector;

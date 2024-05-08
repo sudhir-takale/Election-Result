@@ -1,7 +1,7 @@
 package com.amaap.electionresult.repository.db;
 
-import com.amaap.electionresult.domain.entity.Constituency;
-import com.amaap.electionresult.domain.entity.Party;
+import com.amaap.electionresult.domain.model.entity.Constituency;
+import com.amaap.electionresult.domain.model.entity.Party;
 
 public interface InMemoryDatabase {
     Party save(Party party);

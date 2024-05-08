@@ -1,7 +1,7 @@
 package com.amaap.electionresult.repository;
 
 import com.amaap.electionresult.ElectionResultModule;
-import com.amaap.electionresult.domain.entity.Party;
+import com.amaap.electionresult.domain.model.entity.Party;
 import com.amaap.electionresult.repository.impl.InMemoryPartyRepository;
 import com.google.inject.Guice;
 import com.google.inject.Inject;

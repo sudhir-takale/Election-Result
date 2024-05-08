@@ -1,6 +1,6 @@
 package com.amaap.electionresult.repository.impl;
 
-import com.amaap.electionresult.domain.entity.Constituency;
+import com.amaap.electionresult.domain.model.entity.Constituency;
 import com.amaap.electionresult.repository.ConstituencyRepository;
 import com.amaap.electionresult.repository.db.InMemoryDatabase;
 import com.google.inject.Inject;

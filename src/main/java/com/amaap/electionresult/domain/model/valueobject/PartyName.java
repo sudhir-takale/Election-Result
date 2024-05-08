@@ -1,4 +1,4 @@
-package com.amaap.electionresult.domain.valueobject;
+package com.amaap.electionresult.domain.model.valueobject;
 
 public enum PartyName {
     BJP("Bhartiya Janta Party"),

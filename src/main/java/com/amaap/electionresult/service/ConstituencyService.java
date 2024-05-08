@@ -1,6 +1,6 @@
 package com.amaap.electionresult.service;
 
-import com.amaap.electionresult.domain.entity.Constituency;
+import com.amaap.electionresult.domain.model.entity.Constituency;
 import com.amaap.electionresult.repository.ConstituencyRepository;
 import com.amaap.electionresult.service.exception.InvalidConstituencyFoundException;
 import com.google.inject.Inject;

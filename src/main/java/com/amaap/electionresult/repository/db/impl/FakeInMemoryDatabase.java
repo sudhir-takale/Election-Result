@@ -60,4 +60,9 @@ public class FakeInMemoryDatabase implements InMemoryDatabase {
         electionResults.add(electionResult);
         return electionResult;
     }
+
+    @Override
+    public List<ElectionResult> getElectionResults() {
+        return this.electionResults;
+    }
 }

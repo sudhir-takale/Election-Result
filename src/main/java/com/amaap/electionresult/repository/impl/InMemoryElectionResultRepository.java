@@ -5,6 +5,8 @@ import com.amaap.electionresult.repository.ElectionResultRepository;
 import com.amaap.electionresult.repository.db.InMemoryDatabase;
 import com.google.inject.Inject;
 
+import java.util.List;
+
 public class InMemoryElectionResultRepository implements ElectionResultRepository {
     private final InMemoryDatabase inMemoryDatabase;
 
@@ -16,5 +18,10 @@ public class InMemoryElectionResultRepository implements ElectionResultRepositor
     @Override
     public ElectionResult save(ElectionResult electionResult) {
         return inMemoryDatabase.saveResult(electionResult);
+    }
+
+    @Override
+    public List<ElectionResult> getElectionResults() {
+        return inMemoryDatabase.getElectionResults();
     }
 }

@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -44,6 +45,30 @@ class ElectionResultServiceTest {
 
         // assert
         assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldBeAbleToGetAllElectionResults() throws InvalidPartyCodeException, IllegalAccessException {
+        // arrange
+        String constituencyName = "pune";
+        int voteCount = 345;
+        int voteCount1 = 3445;
+        Map<Party, Integer> party = new HashMap<>();
+        Party p = new Party("INC", "Indian National Congress");
+        Party p1 = new Party("AAP", "Aam Adami Party");
+        party.put(p, voteCount);
+        party.put(p1, voteCount1);
+        partyService.create("INC");
+        partyService.create("AAP");
+        electionResultService.create(constituencyName, "INC", voteCount);
+        electionResultService.create("Mumbai", "AAP", voteCount1);
+
+        // act
+        List<ElectionResult> electionResults = electionResultService.getElectionResults();
+
+        // assert
+        assertEquals(2, electionResults.size());
+
     }
 
 }

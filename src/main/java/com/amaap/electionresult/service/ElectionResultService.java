@@ -6,6 +6,7 @@ import com.amaap.electionresult.repository.ElectionResultRepository;
 import com.google.inject.Inject;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ElectionResultService {
@@ -28,6 +29,10 @@ public class ElectionResultService {
 
         ElectionResult electionResult = new ElectionResult(constituencyName, partyMap);
         return electionResultRepository.save(electionResult);
+    }
+
+    public List<ElectionResult> getElectionResults() {
+        return electionResultRepository.getElectionResults();
     }
 }
 

@@ -6,7 +6,8 @@ public enum PartyName {
     BSP("Bahujan Samaj Party"),
     CPI("Communist Party of India"),
     NCP("Nationalist Congress Party"),
-    IND("Independent");
+    IND("Independent"),
+    AAP("Aam Adami Party");
 
     private final String fullName;
 
@@ -20,7 +21,7 @@ public enum PartyName {
                 return party.getFullName();
             }
         }
-        return "Unknown";
+        return "Invalid";
     }
 
     public String getFullName() {

@@ -30,8 +30,13 @@ We want to transform this into a standard result that shows:
 
 
 
+
+
 ### Analysis
 
+- Assumptions
+  - applied fast fail if input file data doesn't match to criteria specified
+  
 #### Domain Analysis
 ##### Models
   - Entity 

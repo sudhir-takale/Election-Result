@@ -39,8 +39,6 @@ class ElectionResultEvaluatorTest {
         // assert
         assertEquals("Indian national Congress", winner.get().partyName);
         assertEquals(34534, winner.get().winnerVotes);
-
-
     }
 
 
